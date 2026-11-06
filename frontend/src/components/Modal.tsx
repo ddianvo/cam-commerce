@@ -1,0 +1,47 @@
+import { useEffect, useRef, type ReactNode } from 'react';
+import { X } from 'lucide-react';
+export function Modal({
+  title,
+  onClose,
+  children,
+  wide = false,
+}: {
+  title: string;
+  onClose: () => void;
+  children: ReactNode;
+  wide?: boolean;
+}) {
+  const ref = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    const dialog = ref.current!;
+    dialog.showModal();
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+      dialog.close();
+    };
+  }, []);
+  return (
+    <dialog
+      ref={ref}
+      className={'modal ' + (wide ? 'wide' : '')}
+      aria-label={title}
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onClick={(e) => {
+        if (e.target === ref.current) onClose();
+      }}
+    >
+      <div className="modal-head">
+        <h2>{title}</h2>
+        <button className="icon-button" aria-label="Đóng" onClick={onClose}>
+          <X size={21} />
+        </button>
+      </div>
+      {children}
+    </dialog>
+  );
+}

@@ -1,0 +1,299 @@
+[
+  {
+    "id": "20000000-0000-4000-8000-000000000001",
+    "name": "Giày chạy bộ Active",
+    "price": 790000,
+    "stock": 30,
+    "description": "Giày chạy bộ màu xám, thân vải lưới, đế cao su.",
+    "tags": ["chạy bộ", "nam", "nữ", "xám"],
+    "category": "Giày"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000002",
+    "name": "Giày canvas Classic",
+    "price": 320000,
+    "stock": 45,
+    "description": "Giày canvas cổ thấp màu trắng, thiết kế buộc dây.",
+    "tags": ["canvas", "trắng", "unisex"],
+    "category": "Giày"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000003",
+    "name": "Giày thể thao Street",
+    "price": 890000,
+    "stock": 24,
+    "description": "Giày thể thao màu đen, đế cao su, dành cho sinh hoạt hằng ngày.",
+    "tags": ["đen", "nam", "sneaker"],
+    "category": "Giày"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000004",
+    "name": "Balo Campus 25L",
+    "price": 450000,
+    "stock": 35,
+    "description": "Balo dung tích 25 lít, có ngăn laptop 15 inch và hai túi bên.",
+    "tags": ["đi học", "laptop", "unisex"],
+    "category": "Balo"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000005",
+    "name": "Balo Travel 30L",
+    "price": 690000,
+    "stock": 20,
+    "description": "Balo du lịch dung tích 30 lít, có quai đeo điều chỉnh và ngăn phụ phía trước.",
+    "tags": ["du lịch", "30l", "unisex"],
+    "category": "Balo"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000006",
+    "name": "Áo thun Cotton Basic",
+    "price": 159000,
+    "stock": 80,
+    "description": "Áo thun cổ tròn, chất liệu cotton, màu trắng, form thường.",
+    "tags": ["áo thun", "cotton", "trắng", "unisex"],
+    "category": "Thời trang"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000007",
+    "name": "Áo hoodie Everyday",
+    "price": 349000,
+    "stock": 40,
+    "description": "Áo hoodie có mũ và túi trước, chất liệu nỉ, màu xám.",
+    "tags": ["hoodie", "áo khoác", "xám", "unisex"],
+    "category": "Thời trang"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000008",
+    "name": "Áo sơ mi Oxford",
+    "price": 299000,
+    "stock": 35,
+    "description": "Áo sơ mi dài tay, cổ bẻ, màu xanh nhạt, form thường.",
+    "tags": ["sơ mi", "nam", "đi làm"],
+    "category": "Thời trang"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000009",
+    "name": "Váy midi Summer",
+    "price": 429000,
+    "stock": 28,
+    "description": "Váy nữ dáng midi, vải nhẹ, họa tiết hoa, phù hợp mặc thường ngày.",
+    "tags": ["váy", "nữ", "mùa hè", "hoa"],
+    "category": "Thời trang"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000010",
+    "name": "Tai nghe Bluetooth Sound",
+    "price": 590000,
+    "stock": 32,
+    "description": "Tai nghe chụp tai kết nối Bluetooth, có micro tích hợp và cáp sạc USB.",
+    "tags": ["tai nghe", "bluetooth", "âm thanh"],
+    "category": "Điện tử"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000011",
+    "name": "Bàn phím cơ Compact",
+    "price": 790000,
+    "stock": 25,
+    "description": "Bàn phím có dây USB, bố cục 87 phím, đèn nền trắng.",
+    "tags": ["bàn phím", "máy tính", "usb"],
+    "category": "Điện tử"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000012",
+    "name": "Chuột không dây Office",
+    "price": 249000,
+    "stock": 60,
+    "description": "Chuột không dây dùng đầu thu USB, ba nút bấm và con lăn.",
+    "tags": ["chuột", "không dây", "văn phòng"],
+    "category": "Điện tử"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000013",
+    "name": "Loa Bluetooth Mini",
+    "price": 459000,
+    "stock": 34,
+    "description": "Loa Bluetooth để bàn, có nút điều chỉnh âm lượng và cổng sạc USB.",
+    "tags": ["loa", "bluetooth", "âm nhạc"],
+    "category": "Điện tử"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000014",
+    "name": "Bình nước Everyday 750ml",
+    "price": 189000,
+    "stock": 70,
+    "description": "Bình nước dung tích 750ml, thân thép không gỉ và nắp vặn.",
+    "tags": ["bình nước", "750ml", "đi làm"],
+    "category": "Gia dụng"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000015",
+    "name": "Ly sứ Morning 350ml",
+    "price": 99000,
+    "stock": 85,
+    "description": "Ly sứ có quai cầm, dung tích 350ml, màu kem.",
+    "tags": ["ly", "cốc", "sứ", "cà phê"],
+    "category": "Gia dụng"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000016",
+    "name": "Đèn bàn Nordic",
+    "price": 399000,
+    "stock": 22,
+    "description": "Đèn bàn dùng bóng LED đui E27, chụp đèn màu trắng, công tắc trên dây.",
+    "tags": ["đèn", "bàn làm việc", "trang trí"],
+    "category": "Gia dụng"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000017",
+    "name": "Gối tựa Cozy",
+    "price": 179000,
+    "stock": 50,
+    "description": "Gối tựa kích thước 45 x 45cm, vỏ vải có khóa kéo, màu be.",
+    "tags": ["gối", "phòng khách", "trang trí"],
+    "category": "Gia dụng"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000018",
+    "name": "Gel rửa mặt Gentle 150ml",
+    "price": 159000,
+    "stock": 55,
+    "description": "Gel rửa mặt dung tích 150ml, dùng ngoài da theo hướng dẫn trên bao bì.",
+    "tags": ["rửa mặt", "chăm sóc da", "150ml"],
+    "category": "Làm đẹp"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000019",
+    "name": "Kem dưỡng Daily 50ml",
+    "price": 229000,
+    "stock": 40,
+    "description": "Kem dưỡng da dung tích 50ml, dùng theo hướng dẫn và thành phần trên bao bì.",
+    "tags": ["kem dưỡng", "chăm sóc da"],
+    "category": "Làm đẹp"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000020",
+    "name": "Bộ cọ trang điểm Soft",
+    "price": 199000,
+    "stock": 45,
+    "description": "Bộ gồm 8 cọ trang điểm với cán gỗ và túi đựng.",
+    "tags": ["trang điểm", "cọ", "nữ"],
+    "category": "Làm đẹp"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000021",
+    "name": "Son dưỡng Lip Care",
+    "price": 89000,
+    "stock": 90,
+    "description": "Son dưỡng môi dạng thỏi dung lượng 4g, không màu.",
+    "tags": ["son", "môi", "không màu"],
+    "category": "Làm đẹp"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000022",
+    "name": "Thảm tập Yoga Balance",
+    "price": 249000,
+    "stock": 42,
+    "description": "Thảm tập yoga chất liệu TPE, kích thước 183 x 61cm, dày 6mm.",
+    "tags": ["yoga", "thảm", "tập luyện"],
+    "category": "Thể thao"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000023",
+    "name": "Bộ dây kháng lực Flex",
+    "price": 159000,
+    "stock": 55,
+    "description": "Bộ 5 dây kháng lực dạng vòng với các mức lực khác nhau, kèm túi đựng.",
+    "tags": ["gym", "kháng lực", "tập luyện"],
+    "category": "Thể thao"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000024",
+    "name": "Tạ tay Home Fit 2kg",
+    "price": 199000,
+    "stock": 36,
+    "description": "Một cặp tạ tay, mỗi tạ nặng 2kg, bề mặt bọc cao su.",
+    "tags": ["tạ", "gym", "2kg", "tại nhà"],
+    "category": "Thể thao"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000025",
+    "name": "Túi thể thao Move",
+    "price": 329000,
+    "stock": 30,
+    "description": "Túi thể thao có quai xách và dây đeo vai điều chỉnh, dung tích 25 lít.",
+    "tags": ["túi", "gym", "thể thao"],
+    "category": "Thể thao"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000026",
+    "name": "Sổ tay A5 Grid",
+    "price": 69000,
+    "stock": 100,
+    "description": "Sổ tay A5 gồm 160 trang giấy kẻ ô, bìa cứng màu nâu.",
+    "tags": ["sổ", "a5", "ghi chép", "học tập"],
+    "category": "Văn phòng phẩm"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000027",
+    "name": "Bộ bút gel 6 màu",
+    "price": 49000,
+    "stock": 120,
+    "description": "Bộ gồm 6 bút gel màu, đầu ngòi 0.5mm.",
+    "tags": ["bút", "gel", "học tập"],
+    "category": "Văn phòng phẩm"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000028",
+    "name": "Sổ kế hoạch Weekly",
+    "price": 129000,
+    "stock": 65,
+    "description": "Sổ kế hoạch A5, bố cục theo tuần, không in sẵn ngày tháng.",
+    "tags": ["planner", "kế hoạch", "sổ"],
+    "category": "Văn phòng phẩm"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000029",
+    "name": "Hộp bút Canvas",
+    "price": 79000,
+    "stock": 75,
+    "description": "Hộp bút vải canvas có khóa kéo, kích thước 20 x 8 x 5cm.",
+    "tags": ["hộp bút", "canvas", "học tập"],
+    "category": "Văn phòng phẩm"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000030",
+    "name": "Đồng hồ Minimal",
+    "price": 599000,
+    "stock": 24,
+    "description": "Đồng hồ kim, mặt tròn 38mm, dây da màu nâu, dùng pin.",
+    "tags": ["đồng hồ", "thời trang", "unisex"],
+    "category": "Phụ kiện"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000031",
+    "name": "Kính mát Urban",
+    "price": 219000,
+    "stock": 44,
+    "description": "Kính mát gọng nhựa màu đen, có hộp đựng và khăn lau.",
+    "tags": ["kính", "đen", "unisex"],
+    "category": "Phụ kiện"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000032",
+    "name": "Ví gập Everyday",
+    "price": 259000,
+    "stock": 40,
+    "description": "Ví gập chất liệu da tổng hợp, gồm 6 ngăn thẻ và ngăn tiền.",
+    "tags": ["ví", "nam", "phụ kiện"],
+    "category": "Phụ kiện"
+  },
+  {
+    "id": "20000000-0000-4000-8000-000000000033",
+    "name": "Mũ lưỡi trai Classic",
+    "price": 129000,
+    "stock": 60,
+    "description": "Mũ lưỡi trai vải cotton, màu đen, có khóa điều chỉnh phía sau.",
+    "tags": ["mũ", "cotton", "unisex"],
+    "category": "Phụ kiện"
+  }
+]
