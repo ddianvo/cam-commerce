@@ -1,9 +1,11 @@
+import additionalImages from '../demo-image-library.json';
 import { useState, type FormEvent } from 'react';
 import { ImagePlus, Save } from 'lucide-react';
 import type { Auth, Product } from '../types';
 import { api, imageFor } from '../api';
 import { Modal } from '../components/Modal';
 const library: Record<string, string> = {
+  ...additionalImages,
   black: 'Giày đen',
   white: 'Giày trắng',
   backpack: 'Balo',

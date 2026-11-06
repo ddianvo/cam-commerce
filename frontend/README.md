@@ -37,7 +37,7 @@ Phát triển có hot reload: chạy backend tại 3000 rồi `npm run frontend:
 - `src/styles.css`: desktop, tablet, mobile và reduced motion.
 - `public/images/`: ảnh minh họa cục bộ.
 
-Catalog tải dữ liệu theo từng trang API (50 sản phẩm/trang) và có nút Xem thêm, mỗi lần 12 sản phẩm. Danh mục lấy động từ catalog. Bản seed hiện có 36 sản phẩm, 9 danh mục. Các ID seed có ảnh minh họa được map trong `imageFor`; sản phẩm mới hiển thị placeholder cho tới khi thêm ảnh hoặc bổ sung trường imageUrl vào backend.
+Catalog tải dữ liệu theo từng trang API (50 sản phẩm/trang) và có nút Xem thêm, mỗi lần 12 sản phẩm. Danh mục lấy động từ catalog. Bản seed hiện có 150 sản phẩm, 18 danh mục. Ở chế độ Gợi ý, sản phẩm được xen kẽ giữa các danh mục. Sản phẩm mới trong seed dùng imageUrl lưu ở database; ảnh seed cũ có mapping dự phòng trong imageFor.
 
 Ảnh minh họa không thay thế ảnh sản phẩm thực tế. Nguồn ảnh: [giày đen](https://unsplash.com/photos/a-black-adidas-sneakers-on-a-white-background-4s8aUGaYnEE), [giày trắng](https://images.unsplash.com/photo-1600269452121-4f2416e55c28), [balo](https://images.unsplash.com/photo-1553062407-98eeb64c6a62), [hero](https://images.unsplash.com/photo-1542291026-7eec264c27ff). Font Be Vietnam Pro qua package @fontsource, icon Lucide. Tên cửa hàng Cam là tên demo, không đại diện Shopee.
 

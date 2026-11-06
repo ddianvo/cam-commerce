@@ -218,6 +218,21 @@ export default function App() {
           normalize([p.name, p.description, ...p.tags].join(' ')).includes(term),
         ),
     );
+    // Interleave categories so a large demo catalog is diverse on its first page.
+    if (sort === 'suggested') {
+      const groups = new Map<string, Product[]>();
+      for (const product of result) {
+        const group = groups.get(product.category) ?? [];
+        group.push(product);
+        groups.set(product.category, group);
+      }
+      const buckets = [...groups.values()];
+      const mixed: Product[] = [];
+      const longest = Math.max(0, ...buckets.map((group) => group.length));
+      for (let index = 0; index < longest; index++)
+        for (const group of buckets) if (group[index]) mixed.push(group[index]);
+      return mixed;
+    }
     if (sort === 'price-up') result.sort((a, b) => a.price - b.price);
     if (sort === 'price-down') result.sort((a, b) => b.price - a.price);
     return result;

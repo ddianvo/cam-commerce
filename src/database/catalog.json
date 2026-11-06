@@ -295,5 +295,1145 @@
     "description": "Mũ lưỡi trai vải cotton, màu đen, có khóa điều chỉnh phía sau.",
     "tags": ["mũ", "cotton", "unisex"],
     "category": "Phụ kiện"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000001",
+    "name": "Giày sneaker Retro",
+    "price": 459000,
+    "stock": 32,
+    "description": "Giày cổ thấp màu kem, thân da tổng hợp, đế cao su.",
+    "tags": ["sneaker", "kem", "unisex"],
+    "category": "Giày",
+    "imageUrl": "/images/white.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000002",
+    "name": "Giày đi bộ Daily Walk",
+    "price": 399000,
+    "stock": 45,
+    "description": "Giày đi bộ màu đen, thân vải lưới, dây buộc.",
+    "tags": ["đi bộ", "đen", "unisex"],
+    "category": "Giày",
+    "imageUrl": "/images/black.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000003",
+    "name": "Giày chạy bộ Pace",
+    "price": 699000,
+    "stock": 26,
+    "description": "Giày chạy bộ màu trắng, đế cao su, có lớp lót vải.",
+    "tags": ["chạy bộ", "trắng", "thể thao"],
+    "category": "Giày",
+    "imageUrl": "/images/white.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000004",
+    "name": "Giày slip-on Easy",
+    "price": 289000,
+    "stock": 38,
+    "description": "Giày lười vải màu đen, kiểu xỏ chân, đế bằng.",
+    "tags": ["giày lười", "slip on", "đen"],
+    "category": "Giày",
+    "imageUrl": "/images/black.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000005",
+    "name": "Giày thể thao nữ Bloom",
+    "price": 529000,
+    "stock": 27,
+    "description": "Giày thể thao nữ màu trắng, thiết kế buộc dây, đế thấp.",
+    "tags": ["nữ", "trắng", "thể thao"],
+    "category": "Giày",
+    "imageUrl": "/images/white.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000006",
+    "name": "Giày sneaker nam Core",
+    "price": 579000,
+    "stock": 34,
+    "description": "Giày sneaker nam màu đen, thân dệt, có dây buộc.",
+    "tags": ["nam", "đen", "sneaker"],
+    "category": "Giày",
+    "imageUrl": "/images/black.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000007",
+    "name": "Giày tennis Court",
+    "price": 749000,
+    "stock": 18,
+    "description": "Giày thể thao màu trắng, thân da tổng hợp, đế cao su.",
+    "tags": ["tennis", "trắng", "unisex"],
+    "category": "Giày",
+    "imageUrl": "/images/white.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000008",
+    "name": "Giày canvas học sinh",
+    "price": 219000,
+    "stock": 52,
+    "description": "Giày vải canvas màu trắng, cổ thấp, dùng đi học hằng ngày.",
+    "tags": ["học sinh", "canvas", "đi học"],
+    "category": "Giày",
+    "imageUrl": "/images/white.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000009",
+    "name": "Túi tote Canvas Day",
+    "price": 129000,
+    "stock": 65,
+    "description": "Túi tote vải canvas, có quai xách và một ngăn chính.",
+    "tags": ["tote", "canvas", "đi học"],
+    "category": "Balo",
+    "imageUrl": "/images/totebag.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000010",
+    "name": "Balo laptop Work 15",
+    "price": 549000,
+    "stock": 30,
+    "description": "Balo có ngăn laptop 15 inch, hai ngăn phụ và quai đeo điều chỉnh.",
+    "tags": ["laptop", "15 inch", "đi làm"],
+    "category": "Balo",
+    "imageUrl": "/images/backpack.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000011",
+    "name": "Túi đeo chéo Mini",
+    "price": 189000,
+    "stock": 42,
+    "description": "Túi đeo chéo nhỏ, có dây đeo điều chỉnh và ngăn khóa kéo.",
+    "tags": ["đeo chéo", "mini", "unisex"],
+    "category": "Balo",
+    "imageUrl": "/images/handbag.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000012",
+    "name": "Balo nữ Pastel",
+    "price": 329000,
+    "stock": 35,
+    "description": "Balo nữ dung tích 18 lít, có ngăn chính và túi trước.",
+    "tags": ["nữ", "18l", "đi học"],
+    "category": "Balo",
+    "imageUrl": "/images/backpack.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000013",
+    "name": "Balo học sinh Campus Lite",
+    "price": 299000,
+    "stock": 48,
+    "description": "Balo học sinh 20 lít, có hai túi bên và ngăn sách.",
+    "tags": ["học sinh", "đi học", "20l"],
+    "category": "Balo",
+    "imageUrl": "/images/backpack.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000014",
+    "name": "Túi xách City",
+    "price": 399000,
+    "stock": 24,
+    "description": "Túi xách da tổng hợp, có quai cầm và dây đeo rời.",
+    "tags": ["túi xách", "nữ", "đi làm"],
+    "category": "Balo",
+    "imageUrl": "/images/handbag.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000015",
+    "name": "Túi đựng laptop Sleeve",
+    "price": 179000,
+    "stock": 55,
+    "description": "Túi đựng laptop 14 inch, lớp vải lót và khóa kéo.",
+    "tags": ["laptop", "14 inch", "sleeve"],
+    "category": "Balo",
+    "imageUrl": "/images/totebag.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000016",
+    "name": "Balo gấp gọn Pocket",
+    "price": 159000,
+    "stock": 60,
+    "description": "Balo vải 15 lít, có thể gấp vào túi đựng nhỏ đi kèm.",
+    "tags": ["gấp gọn", "du lịch", "15l"],
+    "category": "Balo",
+    "imageUrl": "/images/backpack.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000017",
+    "name": "Áo polo Everyday",
+    "price": 249000,
+    "stock": 70,
+    "description": "Áo polo cổ bẻ, tay ngắn, chất liệu cotton pha, màu trắng.",
+    "tags": ["polo", "nam", "trắng"],
+    "category": "Thời trang",
+    "imageUrl": "/images/tshirt.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000018",
+    "name": "Quần jeans Straight",
+    "price": 399000,
+    "stock": 42,
+    "description": "Quần jeans dáng suông, có năm túi, màu xanh denim.",
+    "tags": ["jeans", "xanh", "unisex"],
+    "category": "Thời trang",
+    "imageUrl": "/images/jeans.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000019",
+    "name": "Áo khoác Denim",
+    "price": 549000,
+    "stock": 28,
+    "description": "Áo khoác denim dài tay, cài nút, có hai túi ngực.",
+    "tags": ["áo khoác", "denim", "unisex"],
+    "category": "Thời trang",
+    "imageUrl": "/images/jacket.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000020",
+    "name": "Áo thun Oversize",
+    "price": 189000,
+    "stock": 85,
+    "description": "Áo thun cotton dáng rộng, cổ tròn, màu trắng.",
+    "tags": ["oversize", "cotton", "trắng"],
+    "category": "Thời trang",
+    "imageUrl": "/images/tshirt.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000021",
+    "name": "Áo cardigan Soft",
+    "price": 359000,
+    "stock": 34,
+    "description": "Áo cardigan dệt kim, cài nút phía trước, màu kem.",
+    "tags": ["cardigan", "nữ", "dệt kim"],
+    "category": "Thời trang",
+    "imageUrl": "/images/hoodie.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000022",
+    "name": "Quần jogger Move",
+    "price": 279000,
+    "stock": 49,
+    "description": "Quần jogger thun, cạp co giãn, có dây rút và hai túi.",
+    "tags": ["jogger", "thể thao", "unisex"],
+    "category": "Thời trang",
+    "imageUrl": "/images/jeans.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000023",
+    "name": "Chân váy Pleat",
+    "price": 299000,
+    "stock": 36,
+    "description": "Chân váy xếp ly dài qua gối, cạp co giãn, màu be.",
+    "tags": ["chân váy", "nữ", "xếp ly"],
+    "category": "Thời trang",
+    "imageUrl": "/images/dress.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000024",
+    "name": "Áo sơ mi Linen",
+    "price": 329000,
+    "stock": 40,
+    "description": "Áo sơ mi dài tay chất liệu linen pha, cổ bẻ, màu sáng.",
+    "tags": ["sơ mi", "linen", "đi làm"],
+    "category": "Thời trang",
+    "imageUrl": "/images/shirt.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000025",
+    "name": "Tai nghe chụp tai Studio",
+    "price": 890000,
+    "stock": 22,
+    "description": "Tai nghe chụp tai có dây, jack 3.5mm, đệm tai bọc da tổng hợp.",
+    "tags": ["tai nghe", "có dây", "âm thanh"],
+    "category": "Điện tử",
+    "imageUrl": "/images/headphones.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000026",
+    "name": "Tai nghe không dây Buds",
+    "price": 399000,
+    "stock": 45,
+    "description": "Tai nghe Bluetooth dạng nhét tai, có hộp sạc và cáp USB.",
+    "tags": ["tai nghe", "bluetooth", "nhét tai"],
+    "category": "Điện tử",
+    "imageUrl": "/images/earbuds.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000027",
+    "name": "Loa để bàn Stereo",
+    "price": 699000,
+    "stock": 26,
+    "description": "Bộ hai loa để bàn, kết nối âm thanh qua jack 3.5mm.",
+    "tags": ["loa", "để bàn", "máy tính"],
+    "category": "Điện tử",
+    "imageUrl": "/images/speaker.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000028",
+    "name": "Micro thu âm Desk",
+    "price": 459000,
+    "stock": 28,
+    "description": "Micro có dây USB, kèm chân đế để bàn và dây kết nối.",
+    "tags": ["micro", "usb", "thu âm"],
+    "category": "Điện tử",
+    "imageUrl": "/images/microphone.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000029",
+    "name": "Đèn livestream Ring",
+    "price": 249000,
+    "stock": 50,
+    "description": "Đèn vòng LED đường kính 26cm, kèm chân đứng và dây nguồn USB.",
+    "tags": ["đèn", "livestream", "led"],
+    "category": "Điện tử",
+    "imageUrl": "/images/lamp.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000030",
+    "name": "Máy nghe nhạc Pocket",
+    "price": 349000,
+    "stock": 30,
+    "description": "Máy nghe nhạc hỗ trợ thẻ nhớ microSD và tai nghe jack 3.5mm.",
+    "tags": ["nghe nhạc", "micro sd", "âm thanh"],
+    "category": "Điện tử",
+    "imageUrl": "/images/speaker.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000031",
+    "name": "Chăn mỏng Cozy 150",
+    "price": 299000,
+    "stock": 35,
+    "description": "Chăn vải mềm kích thước 150 x 200cm, màu be.",
+    "tags": ["chăn", "phòng ngủ", "150x200"],
+    "category": "Gia dụng",
+    "imageUrl": "/images/blanket.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000032",
+    "name": "Nến thơm Vanilla 120g",
+    "price": 129000,
+    "stock": 65,
+    "description": "Nến thơm hương vanilla trong hũ thủy tinh, khối lượng 120g.",
+    "tags": ["nến", "vanilla", "trang trí"],
+    "category": "Gia dụng",
+    "imageUrl": "/images/candle.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000033",
+    "name": "Đồng hồ để bàn Simple",
+    "price": 159000,
+    "stock": 43,
+    "description": "Đồng hồ kim để bàn, mặt tròn, sử dụng pin AA.",
+    "tags": ["đồng hồ", "để bàn", "trang trí"],
+    "category": "Gia dụng",
+    "imageUrl": "/images/watch.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000034",
+    "name": "Hộp đựng đồ Fabric",
+    "price": 99000,
+    "stock": 75,
+    "description": "Hộp đựng đồ bằng vải, kích thước 30 x 30 x 30cm, có tay cầm.",
+    "tags": ["hộp", "sắp xếp", "vải"],
+    "category": "Gia dụng",
+    "imageUrl": "/images/storage.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000035",
+    "name": "Khăn tắm Cotton 70",
+    "price": 149000,
+    "stock": 60,
+    "description": "Khăn tắm cotton kích thước 70 x 140cm, màu kem.",
+    "tags": ["khăn tắm", "cotton", "phòng tắm"],
+    "category": "Gia dụng",
+    "imageUrl": "/images/blanket.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000036",
+    "name": "Bình hoa Glass",
+    "price": 119000,
+    "stock": 54,
+    "description": "Bình hoa thủy tinh trong suốt cao 20cm, miệng tròn.",
+    "tags": ["bình hoa", "thủy tinh", "trang trí"],
+    "category": "Gia dụng",
+    "imageUrl": "/images/vase.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000037",
+    "name": "Nước hoa Floral 30ml",
+    "price": 399000,
+    "stock": 26,
+    "description": "Nước hoa hương hoa, chai xịt dung tích 30ml.",
+    "tags": ["nước hoa", "floral", "30ml"],
+    "category": "Làm đẹp",
+    "imageUrl": "/images/perfume.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000038",
+    "name": "Bộ bông trang điểm 4 món",
+    "price": 69000,
+    "stock": 90,
+    "description": "Bộ bốn bông mút trang điểm, có hộp đựng.",
+    "tags": ["bông", "mút", "trang điểm"],
+    "category": "Làm đẹp",
+    "imageUrl": "/images/cosmetics.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000039",
+    "name": "Gương để bàn Beauty",
+    "price": 129000,
+    "stock": 47,
+    "description": "Gương tròn để bàn, chân đế nhựa, đường kính mặt gương 15cm.",
+    "tags": ["gương", "để bàn", "trang điểm"],
+    "category": "Làm đẹp",
+    "imageUrl": "/images/cosmetics.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000040",
+    "name": "Túi đựng mỹ phẩm Travel",
+    "price": 89000,
+    "stock": 80,
+    "description": "Túi đựng mỹ phẩm vải có khóa kéo, kích thước 22 x 14 x 8cm.",
+    "tags": ["mỹ phẩm", "túi", "du lịch"],
+    "category": "Làm đẹp",
+    "imageUrl": "/images/handbag.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000041",
+    "name": "Lược gỡ rối Smooth",
+    "price": 59000,
+    "stock": 95,
+    "description": "Lược gỡ rối bằng nhựa, có tay cầm và răng lược mềm.",
+    "tags": ["lược", "tóc", "chăm sóc"],
+    "category": "Làm đẹp",
+    "imageUrl": "/images/cosmetics.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000042",
+    "name": "Bộ chai chiết du lịch",
+    "price": 49000,
+    "stock": 100,
+    "description": "Bộ bốn chai nhựa dung tích 50ml, kèm túi zip đựng.",
+    "tags": ["chai chiết", "du lịch", "50ml"],
+    "category": "Làm đẹp",
+    "imageUrl": "/images/skincare.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000043",
+    "name": "Bóng đá Training Size 5",
+    "price": 249000,
+    "stock": 33,
+    "description": "Bóng đá kích thước số 5, vỏ da tổng hợp, dùng tập luyện.",
+    "tags": ["bóng đá", "size 5", "tập luyện"],
+    "category": "Thể thao",
+    "imageUrl": "/images/football.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000044",
+    "name": "Dây nhảy Speed",
+    "price": 89000,
+    "stock": 85,
+    "description": "Dây nhảy dài 2.8m, tay cầm nhựa, có thể điều chỉnh chiều dài.",
+    "tags": ["dây nhảy", "cardio", "tập luyện"],
+    "category": "Thể thao",
+    "imageUrl": "/images/fitness.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000045",
+    "name": "Găng tay tập gym Grip",
+    "price": 129000,
+    "stock": 58,
+    "description": "Găng tay tập gym có đệm lòng bàn tay và khóa dán cổ tay.",
+    "tags": ["gym", "găng tay", "tập luyện"],
+    "category": "Thể thao",
+    "imageUrl": "/images/fitness.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000046",
+    "name": "Bình lắc Protein 600ml",
+    "price": 119000,
+    "stock": 65,
+    "description": "Bình lắc nhựa 600ml, có bóng lò xo và vạch chia dung tích.",
+    "tags": ["bình lắc", "gym", "600ml"],
+    "category": "Thể thao",
+    "imageUrl": "/images/bottle.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000047",
+    "name": "Bóng rổ Street Size 7",
+    "price": 299000,
+    "stock": 30,
+    "description": "Bóng rổ kích thước số 7, bề mặt cao su, dùng tập luyện.",
+    "tags": ["bóng rổ", "size 7", "thể thao"],
+    "category": "Thể thao",
+    "imageUrl": "/images/basketball.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000048",
+    "name": "Khăn thể thao Quick",
+    "price": 79000,
+    "stock": 78,
+    "description": "Khăn thể thao microfiber kích thước 40 x 80cm, kèm túi đựng.",
+    "tags": ["khăn", "microfiber", "thể thao"],
+    "category": "Thể thao",
+    "imageUrl": "/images/blanket.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000049",
+    "name": "Bộ bút chì Sketch 12",
+    "price": 79000,
+    "stock": 90,
+    "description": "Bộ 12 bút chì gỗ, gồm nhiều độ cứng, kèm hộp giấy.",
+    "tags": ["bút chì", "vẽ", "học tập"],
+    "category": "Văn phòng phẩm",
+    "imageUrl": "/images/pencils.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000050",
+    "name": "Giấy ghi chú Pastel",
+    "price": 39000,
+    "stock": 140,
+    "description": "Bộ giấy ghi chú bốn màu pastel, mỗi tập 50 tờ.",
+    "tags": ["giấy", "ghi chú", "pastel"],
+    "category": "Văn phòng phẩm",
+    "imageUrl": "/images/notebook.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000051",
+    "name": "Bìa hồ sơ A4",
+    "price": 29000,
+    "stock": 150,
+    "description": "Bìa đựng hồ sơ khổ A4, chất liệu nhựa, có nút bấm.",
+    "tags": ["hồ sơ", "a4", "văn phòng"],
+    "category": "Văn phòng phẩm",
+    "imageUrl": "/images/notebook.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000052",
+    "name": "Thước kẻ kim loại 30cm",
+    "price": 35000,
+    "stock": 120,
+    "description": "Thước kẻ kim loại dài 30cm, có vạch chia mm và cm.",
+    "tags": ["thước", "30cm", "học tập"],
+    "category": "Văn phòng phẩm",
+    "imageUrl": "/images/pen.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000053",
+    "name": "Bộ màu nước 12 màu",
+    "price": 119000,
+    "stock": 65,
+    "description": "Hộp màu nước 12 màu, kèm một cọ vẽ và khay pha màu.",
+    "tags": ["màu nước", "vẽ", "12 màu"],
+    "category": "Văn phòng phẩm",
+    "imageUrl": "/images/pencils.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000054",
+    "name": "Kẹp sách Reading",
+    "price": 49000,
+    "stock": 105,
+    "description": "Kẹp giữ trang sách bằng kim loại, kèm túi đựng nhỏ.",
+    "tags": ["kẹp sách", "đọc sách", "văn phòng"],
+    "category": "Văn phòng phẩm",
+    "imageUrl": "/images/notebook.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000055",
+    "name": "Thắt lưng Classic",
+    "price": 189000,
+    "stock": 55,
+    "description": "Thắt lưng da tổng hợp, khóa kim loại, chiều dài 110cm.",
+    "tags": ["thắt lưng", "nam", "da tổng hợp"],
+    "category": "Phụ kiện",
+    "imageUrl": "/images/wallet.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000056",
+    "name": "Khăn choàng Autumn",
+    "price": 159000,
+    "stock": 45,
+    "description": "Khăn choàng vải kích thước 180 x 65cm, màu be.",
+    "tags": ["khăn", "nữ", "thời trang"],
+    "category": "Phụ kiện",
+    "imageUrl": "/images/blanket.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000057",
+    "name": "Mũ bucket Sunny",
+    "price": 149000,
+    "stock": 65,
+    "description": "Mũ bucket vải cotton, vành tròn, màu kem.",
+    "tags": ["mũ", "bucket", "unisex"],
+    "category": "Phụ kiện",
+    "imageUrl": "/images/cap.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000058",
+    "name": "Ví đựng thẻ Slim",
+    "price": 99000,
+    "stock": 80,
+    "description": "Ví đựng thẻ da tổng hợp, có sáu khe thẻ, dáng mỏng.",
+    "tags": ["ví", "thẻ", "unisex"],
+    "category": "Phụ kiện",
+    "imageUrl": "/images/wallet.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000059",
+    "name": "Dây đồng hồ Canvas",
+    "price": 89000,
+    "stock": 70,
+    "description": "Dây đồng hồ vải canvas rộng 20mm, có khóa kim loại.",
+    "tags": ["đồng hồ", "dây", "20mm"],
+    "category": "Phụ kiện",
+    "imageUrl": "/images/watch.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000060",
+    "name": "Bộ phụ kiện tóc 6 món",
+    "price": 49000,
+    "stock": 110,
+    "description": "Bộ sáu phụ kiện tóc gồm dây buộc và kẹp, đựng trong túi nhỏ.",
+    "tags": ["tóc", "kẹp", "nữ"],
+    "category": "Phụ kiện",
+    "imageUrl": "/images/cosmetics.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000061",
+    "name": "Ốp lưng trong suốt Clear",
+    "price": 69000,
+    "stock": 110,
+    "description": "Ốp lưng nhựa trong suốt, thiết kế cho mẫu điện thoại 6.1 inch trong bộ demo.",
+    "tags": ["ốp lưng", "trong suốt", "điện thoại"],
+    "category": "Điện thoại & phụ kiện",
+    "imageUrl": "/images/phone.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000062",
+    "name": "Cáp sạc USB-C 1m",
+    "price": 79000,
+    "stock": 95,
+    "description": "Cáp kết nối USB-A sang USB-C dài 1m, dùng sạc và truyền dữ liệu.",
+    "tags": ["cáp", "usb c", "1m"],
+    "category": "Điện thoại & phụ kiện",
+    "imageUrl": "/images/charger.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000063",
+    "name": "Củ sạc USB-C 20W",
+    "price": 189000,
+    "stock": 65,
+    "description": "Củ sạc có một cổng USB-C, công suất tối đa 20W, không kèm cáp.",
+    "tags": ["củ sạc", "usb c", "20w"],
+    "category": "Điện thoại & phụ kiện",
+    "imageUrl": "/images/charger.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000064",
+    "name": "Giá đỡ điện thoại Desk",
+    "price": 59000,
+    "stock": 120,
+    "description": "Giá đỡ điện thoại để bàn bằng nhựa, có thể điều chỉnh góc nghiêng.",
+    "tags": ["giá đỡ", "điện thoại", "để bàn"],
+    "category": "Điện thoại & phụ kiện",
+    "imageUrl": "/images/phone.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000065",
+    "name": "Điện thoại Nova 128GB",
+    "price": 3990000,
+    "stock": 16,
+    "description": "Điện thoại mẫu trong catalog demo: màn hình 6.5 inch, bộ nhớ 128GB, màu đen.",
+    "tags": ["điện thoại", "128gb", "smartphone", "đen"],
+    "category": "Điện thoại & phụ kiện",
+    "imageUrl": "/images/phone.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000066",
+    "name": "Pin dự phòng 10000mAh",
+    "price": 349000,
+    "stock": 48,
+    "description": "Pin dự phòng dung lượng ghi trên sản phẩm 10000mAh, có cổng USB-A và USB-C.",
+    "tags": ["pin", "dự phòng", "10000mah"],
+    "category": "Điện thoại & phụ kiện",
+    "imageUrl": "/images/charger.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000067",
+    "name": "Giá đỡ laptop Fold",
+    "price": 249000,
+    "stock": 46,
+    "description": "Giá đỡ laptop bằng hợp kim nhôm, gấp gọn và điều chỉnh độ nghiêng.",
+    "tags": ["laptop", "giá đỡ", "nhôm"],
+    "category": "Máy tính & phụ kiện",
+    "imageUrl": "/images/laptop.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000068",
+    "name": "Hub USB 4 cổng",
+    "price": 159000,
+    "stock": 70,
+    "description": "Hub mở rộng bốn cổng USB-A, dây nối dài 20cm.",
+    "tags": ["hub", "usb", "4 cổng"],
+    "category": "Máy tính & phụ kiện",
+    "imageUrl": "/images/keyboard.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000069",
+    "name": "Lót chuột Deskmat 80",
+    "price": 129000,
+    "stock": 88,
+    "description": "Tấm lót chuột vải kích thước 80 x 30cm, mặt đáy cao su.",
+    "tags": ["lót chuột", "deskmat", "80x30"],
+    "category": "Máy tính & phụ kiện",
+    "imageUrl": "/images/mouse.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000070",
+    "name": "Bàn phím không dây Office",
+    "price": 359000,
+    "stock": 37,
+    "description": "Bàn phím không dây có đầu thu USB, bố cục đầy đủ phím số.",
+    "tags": ["bàn phím", "không dây", "văn phòng"],
+    "category": "Máy tính & phụ kiện",
+    "imageUrl": "/images/keyboard.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000071",
+    "name": "Webcam Full HD Desk",
+    "price": 459000,
+    "stock": 30,
+    "description": "Webcam kết nối USB, độ phân giải tối đa 1920 x 1080, có kẹp màn hình.",
+    "tags": ["webcam", "usb", "full hd"],
+    "category": "Máy tính & phụ kiện",
+    "imageUrl": "/images/monitor.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000072",
+    "name": "Laptop Study 14",
+    "price": 9490000,
+    "stock": 12,
+    "description": "Laptop mẫu trong catalog demo: màn hình 14 inch, RAM 8GB, SSD 256GB, dùng cho học tập.",
+    "tags": ["laptop", "14 inch", "8gb", "256gb", "học tập"],
+    "category": "Máy tính & phụ kiện",
+    "imageUrl": "/images/laptop.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000073",
+    "name": "Chảo chống dính 24cm",
+    "price": 299000,
+    "stock": 40,
+    "description": "Chảo nhôm đường kính 24cm, lòng phủ chống dính, có tay cầm nhựa.",
+    "tags": ["chảo", "24cm", "nấu ăn"],
+    "category": "Nhà bếp",
+    "imageUrl": "/images/pan.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000074",
+    "name": "Bộ hộp thực phẩm 3 món",
+    "price": 159000,
+    "stock": 65,
+    "description": "Bộ ba hộp nhựa đựng thực phẩm, dung tích 400ml, 700ml và 1000ml.",
+    "tags": ["hộp", "thực phẩm", "3 món"],
+    "category": "Nhà bếp",
+    "imageUrl": "/images/kitchen.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000075",
+    "name": "Thớt gỗ Kitchen 30",
+    "price": 139000,
+    "stock": 55,
+    "description": "Thớt gỗ kích thước 30 x 20cm, có lỗ treo.",
+    "tags": ["thớt", "gỗ", "nhà bếp"],
+    "category": "Nhà bếp",
+    "imageUrl": "/images/kitchen.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000076",
+    "name": "Bộ muỗng đũa 4 người",
+    "price": 119000,
+    "stock": 80,
+    "description": "Bộ dụng cụ ăn cho bốn người, gồm bốn muỗng và bốn đôi đũa.",
+    "tags": ["muỗng", "đũa", "4 người"],
+    "category": "Nhà bếp",
+    "imageUrl": "/images/bowl.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000077",
+    "name": "Tô sứ Noodle 18cm",
+    "price": 89000,
+    "stock": 90,
+    "description": "Tô sứ đường kính 18cm, màu trắng, dùng đựng đồ ăn.",
+    "tags": ["tô", "sứ", "18cm"],
+    "category": "Nhà bếp",
+    "imageUrl": "/images/bowl.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000078",
+    "name": "Bình pha cà phê Press",
+    "price": 249000,
+    "stock": 38,
+    "description": "Bình pha cà phê kiểu French press, thân thủy tinh, dung tích 350ml.",
+    "tags": ["cà phê", "french press", "350ml"],
+    "category": "Nhà bếp",
+    "imageUrl": "/images/coffee.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000079",
+    "name": "Sổ đọc sách Mỗi ngày",
+    "price": 89000,
+    "stock": 90,
+    "description": "Sổ ghi chép quá trình đọc sách, gồm 120 trang và các mục ghi cảm nhận.",
+    "tags": ["đọc sách", "ghi chép", "120 trang"],
+    "category": "Sách",
+    "imageUrl": "/images/books.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000080",
+    "name": "Cẩm nang học tập hiệu quả",
+    "price": 129000,
+    "stock": 70,
+    "description": "Ấn phẩm mẫu trong catalog demo, chủ đề lập kế hoạch và thói quen học tập.",
+    "tags": ["học tập", "kỹ năng", "sách demo"],
+    "category": "Sách",
+    "imageUrl": "/images/books.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000081",
+    "name": "Sách bài tập tiếng Anh A1",
+    "price": 99000,
+    "stock": 80,
+    "description": "Ấn phẩm mẫu gồm các bài luyện từ vựng và ngữ pháp ở mức cơ bản.",
+    "tags": ["tiếng anh", "a1", "học ngoại ngữ"],
+    "category": "Sách",
+    "imageUrl": "/images/books.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000082",
+    "name": "Tập truyện ngắn Cuối tuần",
+    "price": 119000,
+    "stock": 60,
+    "description": "Ấn phẩm mẫu chủ đề truyện ngắn đời sống, bìa mềm.",
+    "tags": ["truyện", "đọc sách", "bìa mềm"],
+    "category": "Sách",
+    "imageUrl": "/images/books.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000083",
+    "name": "Sách tô màu thư giãn",
+    "price": 69000,
+    "stock": 100,
+    "description": "Sách tô màu 40 trang với họa tiết hình học và thiên nhiên.",
+    "tags": ["tô màu", "thư giãn", "40 trang"],
+    "category": "Sách",
+    "imageUrl": "/images/pencils.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000084",
+    "name": "Bộ thẻ học từ vựng",
+    "price": 79000,
+    "stock": 110,
+    "description": "Bộ 100 thẻ giấy để ghi từ vựng, có khoen và hộp đựng.",
+    "tags": ["flashcard", "từ vựng", "học tập"],
+    "category": "Sách",
+    "imageUrl": "/images/books.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000085",
+    "name": "Bộ xếp hình City 120",
+    "price": 189000,
+    "stock": 65,
+    "description": "Bộ xếp hình 120 chi tiết dành cho trẻ từ 6 tuổi, theo hướng dẫn đi kèm.",
+    "tags": ["xếp hình", "6 tuổi", "120 chi tiết"],
+    "category": "Đồ chơi",
+    "imageUrl": "/images/lego.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000086",
+    "name": "Gấu bông Teddy 30cm",
+    "price": 159000,
+    "stock": 70,
+    "description": "Gấu bông cao khoảng 30cm, lớp ngoài vải mềm, ruột bông tổng hợp.",
+    "tags": ["gấu bông", "teddy", "30cm"],
+    "category": "Đồ chơi",
+    "imageUrl": "/images/teddy.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000087",
+    "name": "Bộ đồ chơi nhà bếp Mini",
+    "price": 229000,
+    "stock": 46,
+    "description": "Bộ đồ chơi mô phỏng dụng cụ nhà bếp, dành cho trẻ từ 3 tuổi.",
+    "tags": ["nhà bếp", "đồ chơi", "3 tuổi"],
+    "category": "Đồ chơi",
+    "imageUrl": "/images/toys.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000088",
+    "name": "Tranh ghép Puzzle 500",
+    "price": 149000,
+    "stock": 50,
+    "description": "Bộ tranh ghép 500 mảnh bằng giấy cứng, kèm hình mẫu.",
+    "tags": ["puzzle", "500 mảnh", "ghép hình"],
+    "category": "Đồ chơi",
+    "imageUrl": "/images/lego.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000089",
+    "name": "Xe đồ chơi Mini Car",
+    "price": 79000,
+    "stock": 95,
+    "description": "Xe đồ chơi mô hình cỡ nhỏ, vỏ hợp kim và nhựa, dành cho trẻ từ 6 tuổi.",
+    "tags": ["xe", "mô hình", "6 tuổi"],
+    "category": "Đồ chơi",
+    "imageUrl": "/images/toycar.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000090",
+    "name": "Bộ đất nặn 12 màu",
+    "price": 89000,
+    "stock": 85,
+    "description": "Bộ đất nặn 12 màu, kèm khuôn nhựa, dùng theo độ tuổi ghi trên bao bì.",
+    "tags": ["đất nặn", "12 màu", "sáng tạo"],
+    "category": "Đồ chơi",
+    "imageUrl": "/images/toys.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000091",
+    "name": "Khăn sữa Cotton 5 chiếc",
+    "price": 79000,
+    "stock": 90,
+    "description": "Bộ năm khăn cotton kích thước 25 x 25cm, màu sáng.",
+    "tags": ["khăn", "cotton", "bé"],
+    "category": "Mẹ & bé",
+    "imageUrl": "/images/baby.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000092",
+    "name": "Túi đựng đồ cho bé",
+    "price": 249000,
+    "stock": 40,
+    "description": "Túi vải nhiều ngăn, có quai xách và dây đeo vai điều chỉnh.",
+    "tags": ["túi", "mẹ và bé", "nhiều ngăn"],
+    "category": "Mẹ & bé",
+    "imageUrl": "/images/babyclothes.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000093",
+    "name": "Bộ quần áo bé Cotton",
+    "price": 159000,
+    "stock": 65,
+    "description": "Bộ quần áo cotton cho bé, gồm áo cài nút và quần thun.",
+    "tags": ["quần áo", "cotton", "bé"],
+    "category": "Mẹ & bé",
+    "imageUrl": "/images/babyclothes.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000094",
+    "name": "Yếm ăn vải mềm 3 chiếc",
+    "price": 59000,
+    "stock": 95,
+    "description": "Bộ ba yếm ăn vải, có nút bấm và lớp lót.",
+    "tags": ["yếm", "ăn dặm", "bé"],
+    "category": "Mẹ & bé",
+    "imageUrl": "/images/baby.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000095",
+    "name": "Chăn mỏng cho bé",
+    "price": 189000,
+    "stock": 45,
+    "description": "Chăn cotton kích thước 100 x 120cm, màu kem.",
+    "tags": ["chăn", "cotton", "100x120"],
+    "category": "Mẹ & bé",
+    "imageUrl": "/images/baby.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000096",
+    "name": "Hộp đựng đồ chăm sóc bé",
+    "price": 129000,
+    "stock": 58,
+    "description": "Hộp nhựa có nắp và tay cầm, chia ngăn nhỏ để sắp xếp đồ dùng.",
+    "tags": ["hộp", "chăm sóc bé", "sắp xếp"],
+    "category": "Mẹ & bé",
+    "imageUrl": "/images/babyclothes.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000097",
+    "name": "Bát ăn thú cưng Inox",
+    "price": 69000,
+    "stock": 80,
+    "description": "Bát ăn inox đường kính 14cm, có vòng cao su ở đáy.",
+    "tags": ["bát", "inox", "chó mèo"],
+    "category": "Thú cưng",
+    "imageUrl": "/images/petfood.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000098",
+    "name": "Dây dắt chó Daily",
+    "price": 99000,
+    "stock": 65,
+    "description": "Dây dắt chó bằng vải dài 1.5m, có móc kim loại và tay cầm.",
+    "tags": ["dây dắt", "chó", "1.5m"],
+    "category": "Thú cưng",
+    "imageUrl": "/images/dog.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000099",
+    "name": "Đồ chơi bóng cho chó",
+    "price": 49000,
+    "stock": 100,
+    "description": "Bóng cao su đường kính 7cm dùng cho chó, lựa chọn theo kích thước thú cưng.",
+    "tags": ["đồ chơi", "chó", "bóng"],
+    "category": "Thú cưng",
+    "imageUrl": "/images/dog.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000100",
+    "name": "Cần câu đồ chơi cho mèo",
+    "price": 39000,
+    "stock": 110,
+    "description": "Đồ chơi cần câu cho mèo, gồm cán nhựa, dây và phụ kiện vải.",
+    "tags": ["mèo", "đồ chơi", "cần câu"],
+    "category": "Thú cưng",
+    "imageUrl": "/images/cat.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000101",
+    "name": "Đệm nằm thú cưng Cozy",
+    "price": 229000,
+    "stock": 38,
+    "description": "Đệm nằm kích thước 60 x 45cm, vỏ vải có thể tháo rời.",
+    "tags": ["đệm", "chó mèo", "60x45"],
+    "category": "Thú cưng",
+    "imageUrl": "/images/cat.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000102",
+    "name": "Lược chải lông Pet Care",
+    "price": 79000,
+    "stock": 75,
+    "description": "Lược chải lông thú cưng có tay cầm nhựa và đầu răng kim loại.",
+    "tags": ["lược", "chải lông", "thú cưng"],
+    "category": "Thú cưng",
+    "imageUrl": "/images/petfood.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000103",
+    "name": "Giá đỡ điện thoại ô tô",
+    "price": 149000,
+    "stock": 55,
+    "description": "Giá đỡ điện thoại gắn khe thông gió ô tô, có kẹp điều chỉnh.",
+    "tags": ["ô tô", "điện thoại", "giá đỡ"],
+    "category": "Ô tô & xe máy",
+    "imageUrl": "/images/car.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000104",
+    "name": "Khăn lau xe Microfiber",
+    "price": 39000,
+    "stock": 120,
+    "description": "Khăn microfiber kích thước 30 x 40cm, dùng lau bề mặt xe.",
+    "tags": ["khăn", "lau xe", "microfiber"],
+    "category": "Ô tô & xe máy",
+    "imageUrl": "/images/car.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000105",
+    "name": "Móc treo đồ xe máy",
+    "price": 49000,
+    "stock": 90,
+    "description": "Móc treo đồ bằng hợp kim và nhựa, lắp tại vị trí phù hợp trên xe máy.",
+    "tags": ["móc", "xe máy", "phụ kiện"],
+    "category": "Ô tô & xe máy",
+    "imageUrl": "/images/motorcycle.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000106",
+    "name": "Túi đựng đồ treo ghế",
+    "price": 159000,
+    "stock": 45,
+    "description": "Túi vải treo sau ghế ô tô, có các ngăn đựng vật dụng nhỏ.",
+    "tags": ["ô tô", "túi", "sắp xếp"],
+    "category": "Ô tô & xe máy",
+    "imageUrl": "/images/car.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000107",
+    "name": "Bọc yên xe máy",
+    "price": 79000,
+    "stock": 70,
+    "description": "Bọc yên xe máy bằng vải phủ nhựa, có dây co giãn.",
+    "tags": ["xe máy", "bọc yên", "phụ kiện"],
+    "category": "Ô tô & xe máy",
+    "imageUrl": "/images/motorcycle.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000108",
+    "name": "Bộ chổi vệ sinh nội thất xe",
+    "price": 59000,
+    "stock": 95,
+    "description": "Bộ ba chổi lông mềm cỡ khác nhau để làm sạch khe và bề mặt nội thất.",
+    "tags": ["vệ sinh", "nội thất", "ô tô"],
+    "category": "Ô tô & xe máy",
+    "imageUrl": "/images/car.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000109",
+    "name": "Lều cắm trại Weekend 2",
+    "price": 899000,
+    "stock": 18,
+    "description": "Lều hai người gồm thân lều, khung, cọc và túi đựng.",
+    "tags": ["lều", "2 người", "cắm trại"],
+    "category": "Du lịch & dã ngoại",
+    "imageUrl": "/images/tent.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000110",
+    "name": "Thảm dã ngoại Fold",
+    "price": 189000,
+    "stock": 48,
+    "description": "Thảm picnic kích thước 150 x 200cm, có thể gấp thành túi xách.",
+    "tags": ["picnic", "thảm", "150x200"],
+    "category": "Du lịch & dã ngoại",
+    "imageUrl": "/images/camping.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000111",
+    "name": "Gối cổ du lịch Soft",
+    "price": 99000,
+    "stock": 65,
+    "description": "Gối cổ hình chữ U, vỏ vải mềm, có nút cài phía trước.",
+    "tags": ["gối cổ", "du lịch", "chữ u"],
+    "category": "Du lịch & dã ngoại",
+    "imageUrl": "/images/travel.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000112",
+    "name": "Túi ngủ Travel Lite",
+    "price": 499000,
+    "stock": 25,
+    "description": "Túi ngủ dạng chữ nhật, có khóa kéo và túi đựng đi kèm.",
+    "tags": ["túi ngủ", "cắm trại", "du lịch"],
+    "category": "Du lịch & dã ngoại",
+    "imageUrl": "/images/tent.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000113",
+    "name": "Bộ túi chia hành lý 6 món",
+    "price": 149000,
+    "stock": 60,
+    "description": "Bộ sáu túi vải chia hành lý, nhiều kích thước, có khóa kéo.",
+    "tags": ["hành lý", "túi", "du lịch"],
+    "category": "Du lịch & dã ngoại",
+    "imageUrl": "/images/totebag.jpg"
+  },
+  {
+    "id": "30000000-0000-4000-8000-000000000114",
+    "name": "Ghế dã ngoại Compact",
+    "price": 329000,
+    "stock": 32,
+    "description": "Ghế khung thép gấp gọn, mặt vải, có túi đựng.",
+    "tags": ["ghế", "gấp gọn", "dã ngoại"],
+    "category": "Du lịch & dã ngoại",
+    "imageUrl": "/images/camping.jpg"
   }
 ]

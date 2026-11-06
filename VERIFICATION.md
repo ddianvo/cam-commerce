@@ -54,3 +54,13 @@ File ZIP chỉ chứa mã nguồn, migration, tests, lockfile và tài liệu; k
 - Live API: Admin seed đăng nhập thành công, /auth/me xác minh role admin; quản trị thấy 36 sản phẩm và 3 đơn; Customer bị 403; tài khoản/mật khẩu Admin chỉ lưu .env cục bộ, không in vào frontend/ZIP.
 - Migration imageUrl chạy trên DB hiện có, giữ nguyên catalog và đơn hàng. Ảnh mới chọn từ thư viện cục bộ, không hỗ trợ upload.
 - Browser access host vẫn không khả dụng, nên chưa kiểm thử trực quan các màn hình Admin. Không mô tả API smoke test là kiểm thử UI trên trình duyệt.
+
+## Mở rộng catalog cho đồ án cuối kỳ — 06/11/2026
+
+- Bổ sung 114 sản phẩm, đạt **150 sản phẩm / 18 danh mục**, thêm 37 ảnh minh họa và mở rộng thư viện ảnh Admin.
+- Kiểm tra fixture: ID/tên không trùng, giá/số lượng nguyên hợp lệ, độ dài mô tả/tags phù hợp DTO, mọi imageUrl đều có file tương ứng.
+- Build frontend/backend thành công. Không đổi cấu hình API key hoặc chức năng thanh toán.
+- Seed chạy hai lần: tổng vẫn 150; so sánh snapshot DB xác nhận cả 36 sản phẩm cũ giữ nguyên toàn bộ trường, bao gồm giá, tồn kho và nội dung.
+- Live API: tải đủ 3 trang x 50, 150 ID riêng biệt; 18/18 bộ lọc danh mục trả đúng mặt hàng; tìm kiếm tiếng Việt với sách hoạt động; 61 URL ảnh được sản phẩm sử dụng trả HTTP 200; trang chủ HTTP 200.
+- Trang chủ xen kẽ danh mục ở chế độ Gợi ý, vẫn giữ sắp xếp giá và Xem thêm 12 sản phẩm/lần.
+- Browser access host không khả dụng; chưa kiểm tra trực quan bản catalog mới trên trình duyệt.

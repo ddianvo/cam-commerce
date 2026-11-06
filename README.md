@@ -8,7 +8,7 @@ Mở `http://localhost:3000/` để dùng giao diện Cam. Cài dependency bằn
 
 ## Catalog và mã giảm giá (06/11/2026)
 
-Chạy lại migration và seed để bổ sung 33 sản phẩm, đạt **36 sản phẩm / 9 danh mục**: Giày, Balo, Thời trang, Điện tử, Gia dụng, Làm đẹp, Thể thao, Văn phòng phẩm, Phụ kiện. Seed không ghi đè stock, giá hoặc sản phẩm đã tồn tại.
+Catalog cho bài cuối kỳ hiện gồm **150 sản phẩm / 18 danh mục**. Chạy `npm run seed` để nạp dữ liệu mẫu; lệnh chỉ thêm sản phẩm chưa có, giữ nguyên dữ liệu đã chỉnh sửa. Xem [danh mục và kịch bản demo](docs/DEMO-CATALOG.md).
 
 | Mã | Ưu đãi | Đơn tối thiểu | Giới hạn/người |
 |---|---|---:|---:|
