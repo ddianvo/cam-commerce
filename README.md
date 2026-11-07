@@ -1,6 +1,6 @@
 # NestJS E-commerce + AI Sales Assistant
 
-Mã nguồn NestJS 11, TypeScript strict, PostgreSQL + TypeORM, JWT/RBAC và OpenAI SDK chính thức. Các endpoint đều dùng tiền tố `/api`. Dự án gồm backend API và frontend React/TypeScript màu cam, được phục vụ cùng ứng dụng NestJS.
+Mã nguồn NestJS 11, TypeScript strict, PostgreSQL + TypeORM, JWT/RBAC và mô hình phân loại nhu cầu mua sắm chạy cục bộ. Các endpoint đều dùng tiền tố `/api`. Dự án gồm backend API và frontend React/TypeScript màu cam, được phục vụ cùng ứng dụng NestJS.
 
 ## Frontend bán hàng
 
@@ -100,9 +100,10 @@ nest-commerce/
 │   │   ├── ai.module.ts
 │   │   ├── ai.controller.ts            # POST /api/ai/chat
 │   │   ├── ai.service.ts               # Điều phối hiểu nhu cầu → DB → tư vấn
-│   │   ├── llm.service.ts              # OpenAI Responses API + JSON schema
-│   │   ├── ai.prompts.ts               # System Instructions tiếng Việt
-│   │   ├── ai.schemas.ts               # Schema nhu cầu và câu trả lời
+│   │   ├── intent-model.ts             # Huấn luyện và chạy phân loại cục bộ
+│   │   ├── intent-training.json        # Mẫu câu tiếng Việt có nhãn
+│   │   ├── shopping-needs.ts           # Tách ngân sách và thuộc tính
+│   │   ├── ai.schemas.ts               # Kiểu dữ liệu phiên chat
 │   │   ├── chat-memory.service.ts      # Redis hoặc Memory, TTL và session lock
 │   │   └── dto/chat.dto.ts
 │   └── database/
@@ -143,7 +144,7 @@ Copy-Item .env.example .env
 node -e "console.log(require('node:crypto').randomBytes(48).toString('hex'))"
 ```
 
-Dán chuỗi ngẫu nhiên vừa tạo vào `JWT_SECRET` trong `.env`. Điền `OPENAI_API_KEY` để dùng chatbot và chọn `OPENAI_MODEL` hỗ trợ Responses API + Structured Outputs. Giá trị mẫu là `gpt-4.1-mini`; model khả dụng phụ thuộc tài khoản của bạn. Không đưa `.env` vào Git hoặc frontend.
+Dán chuỗi ngẫu nhiên vừa tạo vào `JWT_SECRET` trong `.env`. Chatbot tự chạy cùng NestJS và không cần API key. Giữ `.env` ngoài Git và frontend.
 
 Nếu cần admin ban đầu, đặt `SEED_ADMIN_EMAIL` và `SEED_ADMIN_PASSWORD` (ít nhất 10 ký tự, tối đa 72 byte UTF-8). Seed không đổi mật khẩu hoặc nâng quyền một email đã tồn tại; nếu không cấu hình mật khẩu thì chỉ thêm sản phẩm mẫu.
 
@@ -239,12 +240,12 @@ Invoke-RestMethod -Method Post -Uri "$base/ai/chat" -Headers $headers `
   -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($followUp))
 ```
 
-Một response chat thành công có HTTP 200 và cấu trúc sau (nội dung lời tư vấn thay đổi theo model):
+Một response chat thành công có HTTP 200 và cấu trúc sau (nội dung minh họa lời tư vấn theo danh mục):
 
 ```json
 {
   "sessionId": "30000000-0000-4000-8000-000000000001",
-  "text": "Bạn có thể tham khảo Giày thể thao nam Urban, giá 650.000 VND. Bạn thích màu đen chứ?",
+  "text": "Mình tìm được 1 lựa chọn phù hợp. Bạn có thể xem Giày thể thao nam Urban (650.000 ₫) trước nhé.",
   "productIds": ["10000000-0000-4000-8000-000000000001"],
   "products": [
     {
@@ -263,30 +264,20 @@ Một response chat thành công có HTTP 200 và cấu trúc sau (nội dung l�
 }
 ```
 
-Đây là ví dụ minh họa contract, không phải kết quả gọi OpenAI thật trong lần bàn giao. Khi cần hỏi thêm, `productIds`/`products` có thể rỗng. Frontend lấy giá/tồn kho và thẻ sản phẩm từ `products` do server truy vấn, không tách các giá trị đó từ lời thoại.
+Khi cần hỏi thêm hoặc chưa có hàng phù hợp, `productIds` và `products` là mảng rỗng. Thẻ sản phẩm lấy giá và tồn kho trực tiếp từ `products`.
 
 ## 4. Cơ chế “Khách nhắn → AI hiểu → Database → Đề xuất”
 
-1. **Nhận tin và xác thực:** `AiController` nhận `userId`, `message`, `sessionId`. JWT guard xác định người dùng; `AiService` từ chối nếu client dùng userId khác, kể cả Staff/Admin.
-2. **Nạp lịch sử:** `ChatMemoryService` dùng key `chat:<userId>:<sessionId>`. Lịch sử tối đa 24 tin, tương đương 12 lượt hỏi đáp, TTL mặc định 30 phút kể từ lần xử lý thành công. Hai user có cùng sessionId vẫn tách biệt. Session lock từ chối tin đồng thời bằng HTTP 409; Redis có lock token và fencing trước khi ghi.
-3. **Hiểu nhu cầu:** `LlmService` gọi OpenAI Responses API với `NeedsSchema`. LLM đọc lịch sử và câu mới, trích keywords, category, minPrice/maxPrice nguyên VND và một câu hỏi làm rõ nếu cần. Không có loại sản phẩm thì server hỏi lại thay vì quét toàn bộ catalog để đề xuất tùy tiện.
-4. **Truy vấn database:** `ProductService.search()` chuẩn hóa chữ có dấu/không dấu, tìm keywords trong tên, mô tả, danh mục và tags. Các từ khóa kết hợp AND, lọc khoảng giá, chỉ lấy sản phẩm đang bán và tồn kho dương; tối đa 12 ứng viên, sắp xếp giá tăng dần. Mọi giá trị đều là bound parameters. Model không được viết hoặc chạy SQL.
-5. **Tạo lời tư vấn:** server chỉ gửi catalog ứng viên cho lượt gọi LLM thứ hai. `SALES_SYSTEM_INSTRUCTION` yêu cầu không bịa sản phẩm/giá/tính năng, không làm theo chỉ dẫn ẩn trong mô tả sản phẩm, đặt một câu hỏi gợi mở khi cần và chỉ trả `{ text, productIds }`. Responses API dùng `zodTextFormat` với strict JSON schema; server parse lại bằng Zod.
-6. **Kiểm tra kết quả:** loại ID trùng; nếu có bất kỳ ID ngoài catalog thì bỏ toàn bộ lời tư vấn đó và trả câu hỏi an toàn. Server đọc lại sản phẩm theo ID, kiểm tra còn bán/còn hàng và thay đổi dữ liệu. Giá hoặc thông tin thay đổi thì bỏ tư vấn cũ. Response đính kèm entity từ DB theo đúng thứ tự ID.
-7. **Ghi nhớ:** chỉ ghi cả tin khách và câu trả lời cuối cùng khi lượt xử lý thành công. Lượt tiếp theo dùng cùng sessionId để giữ ngữ cảnh; lỗi OpenAI hoặc Redis không ghi dở hội thoại.
+NestJS đọc yêu cầu mới và các tiêu chí đã lưu trong phiên. Chatbot ưu tiên tìm tên và từ khóa trong danh mục PostgreSQL. Khi khách mô tả công dụng, mô hình được huấn luyện từ các mẫu câu tiếng Việt có thể ánh xạ nhu cầu đó thành loại sản phẩm. Server lọc hàng đang bán, còn tồn kho và phù hợp ngân sách, sau đó tạo lời tư vấn theo mẫu từ dữ liệu sản phẩm.
 
-Ví dụ: “giày thể thao nam dưới 700 nghìn” được hiểu thành các từ khóa sản phẩm, đối tượng nam và `maxPrice = 700000`. Database tìm trong catalog thật; mẫu giày nam Urban 650.000 VND có thể được đưa vào catalog. Lượt sau “màu đen nhé” được hiểu cùng với nhu cầu trước đó.
-
-Đây là **retrieval + prompt + conversation memory**, không phải huấn luyện lại trọng số model. Tìm kiếm hiện là lexical trên keywords/tags, chưa dùng embeddings/pgvector. Có thể thêm từ đồng nghĩa vào tags; khi catalog lớn nên thay query LIKE bằng chỉ mục phù hợp hoặc pgvector. Không có fallback giả lập câu trả lời nếu thiếu API key; endpoint trả HTTP 503, còn phần thương mại vẫn hoạt động.
-
-Ranh giới kiểm soát: server kiểm chứng cứng ID và dữ liệu của sản phẩm đính kèm. System prompt hạn chế nội dung bịa trong lời thoại nhưng không chứng minh mọi câu văn tự do của LLM đều chính xác. Nếu cần bảo đảm tuyệt đối mọi phát biểu về giá/tính năng, dùng lời thoại theo template từ entity thay cho prose tự do của model. Tồn kho vẫn có thể thay đổi sau response; checkout luôn kiểm tra lại.
+Xem [cách huấn luyện và kịch bản demo](docs/AI-FLOW.md).
 
 ## 5. Transaction đặt hàng
 
 - Giỏ hàng chỉ lưu số lượng mong muốn; thêm giỏ không giữ tồn kho và không nhận giá/tổng tiền từ client.
 - Giỏ tối đa 50 mặt hàng; mỗi mặt hàng 1–1.000 đơn vị. Giá mỗi sản phẩm 0–1 tỷ VND; tổng đơn tối đa 1.000 tỷ VND. Giá/tổng tiền dùng số nguyên an toàn, cột PostgreSQL bigint; transformer đổi bigint sang number trong các giới hạn đã kiểm soát.
 - Mọi sửa giỏ và checkout khóa hàng User trước. Checkout đọc giỏ, sau đó khóa Product theo thứ tự UUID cố định bằng `SELECT ... FOR UPDATE`, kiểm tra tồn kho, giảm tồn kho, lưu Order/OrderItem snapshot và xóa giỏ trong **cùng transaction**.
-- Dùng duy nhất EntityManager của transaction. Bất kỳ lỗi nào cũng rollback cả tồn kho, đơn và việc xóa giỏ. Không gọi LLM hoặc dịch vụ mạng trong transaction.
+- Dùng duy nhất EntityManager của transaction. Bất kỳ lỗi nào cũng rollback cả tồn kho, đơn và việc xóa giỏ. Giữ các tác vụ bên ngoài database ngoài transaction.
 - Unique `(userId, idempotencyKey)` kết hợp user lock bảo đảm retry/simultaneous retry trả lại đơn cũ và không trừ hàng lần nữa. Một lần mua mới phải có key mới.
 - OrderItem chụp tên/đơn giá lúc đặt. Xóa sản phẩm là ngừng bán để giữ tham chiếu giỏ và đơn lịch sử.
 - Checkout hiện là xác nhận đơn hàng kiểu COD/manual: trạng thái `confirmed` **không có nghĩa đã thu tiền**. Chưa tích hợp payment gateway, phí vận chuyển, thuế, hoàn tiền hay hủy đơn. Nếu thêm thanh toán trực tuyến, cần payment intent/webhook được xác minh và idempotency; không cho client tự khai “đã thanh toán”.
@@ -314,8 +305,6 @@ Các test AI dùng mock provider để kiểm chứng logic một cách xác đ�
 
 ## 7. Tài liệu kỹ thuật tham chiếu
 
-- [OpenAI: Structured Outputs và Responses API](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses)
-- [OpenAI Node SDK: Structured Outputs](https://github.com/openai/openai-node/blob/main/docs/structured-outputs.md)
 - [TypeORM: Transactions và transactional EntityManager](https://typeorm.io/docs/transactions/)
 
 Dependency lockfile đi kèm để tái lập cài đặt. Override `multer` và `typeorm > glob` chọn phiên bản đã vá thay vì nâng major framework/ORM ngoài phạm vi; build và kiểm thử database được chạy với dependency đã resolve. Tài khoản database, secrets và cấu hình truy cập mạng cho môi trường triển khai cần được cấp riêng.

@@ -1,21 +1,31 @@
-# Cơ chế tư vấn sản phẩm
+# Chat tư vấn sản phẩm chạy cục bộ
 
 ```mermaid
 flowchart LR
-    A[Khách gửi tin + JWT + sessionId] --> B[Nạp lịch sử riêng của khách]
-    B --> C[LLM trích xuất nhu cầu thành JSON]
-    C --> D[Service truy vấn PostgreSQL theo keywords/tags và ngân sách]
-    D --> E[LLM tư vấn từ catalog kết quả]
-    E --> F[Server kiểm tra ID và đọc lại sản phẩm]
-    F --> G[Trả text + productIds + products, lưu lịch sử]
+    A[Khách gửi tin và sessionId] --> B[NestJS xác thực và nạp tiêu chí phiên]
+    B --> C[Tách ngân sách và thuộc tính]
+    C --> D[Tìm từ khóa hoặc phân loại công dụng]
+    E[(Danh mục PostgreSQL)] --> D
+    D --> F[Lọc theo tồn kho và yêu cầu]
+    F --> G[Trả lời kèm sản phẩm thật và lưu tiêu chí]
 ```
 
-Khách nhắn “Tôi cần giày nam dưới 700 nghìn”. AI đọc cả tin mới lẫn lịch sử phiên, chuyển nhu cầu thành từ khóa, đối tượng sử dụng và giới hạn giá. ProductService dùng các tiêu chí đó để tìm sản phẩm đang bán, còn hàng trong PostgreSQL. Việc tìm kiếm dùng tham số SQL; AI không có quyền thực thi SQL tùy ý.
+## Huấn luyện
 
-Server đưa tối đa 12 sản phẩm tìm được cho AI. System Instruction yêu cầu chỉ tư vấn trong catalog này, hỏi thêm nếu chưa rõ nhu cầu và trả JSON `{ text, productIds }`. Nếu không tìm thấy sản phẩm, server trả lời chưa có lựa chọn phù hợp và mời khách điều chỉnh tiêu chí.
+[`intent-training.json`](../src/ai/intent-training.json) chứa 48 mẫu câu tiếng Việt có nhãn cho 12 nhóm công dụng. [`intent-model.ts`](../src/ai/intent-model.ts) chuẩn hóa chữ có dấu, tạo đặc trưng từ đơn và cặp từ liền nhau, rồi tính vector trung bình cho mỗi nhãn khi NestJS nạp module. Khi nhận câu hỏi, mô hình dùng độ tương đồng cosine để chọn nhãn. Mô hình chỉ chọn khi điểm đủ cao và tách biệt với nhãn đứng thứ hai.
 
-Server kiểm tra ID trả về có thuộc catalog hay không, đọc lại giá/tồn kho và đính kèm sản phẩm thật. ID lạ hoặc dữ liệu vừa thay đổi khiến lời tư vấn bị loại bỏ. Các thông tin trên thẻ sản phẩm phải lấy từ trường `products`, không suy ra từ lời thoại tự do.
+Để dạy một cách diễn đạt mới, thêm mẫu câu vào mảng của nhãn tương ứng, chạy `npm test` rồi build và khởi động lại NestJS. Tên nhãn dùng làm cụm từ tra danh mục. Đây là mô hình phân loại nhỏ, giới hạn ở nhu cầu mua hàng. Những loại sản phẩm ngoài bộ huấn luyện vẫn tìm được nếu tên hoặc từ khóa xuất hiện trong danh mục.
 
-Lịch sử lưu riêng theo `userId + sessionId` trong Redis hoặc Memory, tối đa 24 tin, TTL mặc định 30 phút. Vì vậy câu tiếp theo “màu đen nhé” vẫn được hiểu cùng nhu cầu giày nam và ngân sách trước đó. JWT phải khớp userId; cùng một session không xử lý hai tin đồng thời.
+## Xử lý hội thoại
 
-Đây là cơ chế truy xuất dữ liệu kết hợp system prompt và bộ nhớ hội thoại, không phải fine-tuning. Tìm kiếm hiện dùng keywords/tags, chưa dùng vector. Kiểm tra máy chủ bảo đảm ID và dữ liệu sản phẩm đính kèm; độ chính xác của mọi câu văn tự do vẫn phụ thuộc model. Checkout luôn kiểm tra lại tồn kho trong transaction.
+1. `POST /api/ai/chat` nhận `userId`, `sessionId`, `message`. JWT xác định chủ phiên.
+2. Parser nhận diện ngân sách như `dưới 500k`, `1,5 triệu`, `từ 300k đến 600k` cùng màu và đối tượng sử dụng. Câu “màu đen nhé” bổ sung tiêu chí trong cùng phiên.
+3. Server đọc danh mục đang bán từ PostgreSQL và ưu tiên khớp tên, danh mục, mô tả hoặc tags. Nếu không khớp trực tiếp, mô hình thử suy ra loại sản phẩm từ công dụng. Danh mục demo đủ nhỏ để chấm điểm trên máy chủ.
+4. Server lọc lại theo tồn kho và yêu cầu, rồi trả `{ sessionId, text, productIds, products }` với tối đa ba sản phẩm. Lời thoại lấy tên và giá từ dữ liệu đã đọc. Khi chưa rõ nhu cầu hoặc hết lựa chọn phù hợp, chat hỏi thêm.
+5. Memory hoặc Redis lưu tiêu chí và tối đa 24 tin theo tài khoản và phiên. Thời gian hết hạn mặc định là 30 phút sau lượt thành công gần nhất.
+
+## Kịch bản demo
+
+- Mở chat sau khi đăng nhập và gửi “Giày nam dưới 700 nghìn”. Tiếp tục với “màu đen nhé”.
+- Tạo phiên mới và gửi “Nghe nhạc riêng tư dưới 1 triệu” để xem nhận diện nhu cầu theo công dụng.
+- Gửi “thời tiết hôm nay thế nào” trong phiên mới để xem chat hỏi lại loại sản phẩm.

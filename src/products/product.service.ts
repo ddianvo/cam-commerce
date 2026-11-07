@@ -1,15 +1,9 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { In, Repository, SelectQueryBuilder } from 'typeorm';
+import { Repository, SelectQueryBuilder } from 'typeorm';
 import { Product } from './entities/product.entity';
 import { CreateProductDto, ProductQueryDto, UpdateProductDto } from './dto/product.dto';
 import { buildSearchText, normalizeText, searchTokens } from './product-search';
-export interface SearchNeeds {
-  keywords: string[];
-  category: string | null;
-  minPrice: number | null;
-  maxPrice: number | null;
-}
 @Injectable()
 export class ProductService {
   constructor(@InjectRepository(Product) private readonly products: Repository<Product>) {}
@@ -75,25 +69,8 @@ export class ProductService {
     if (!result.affected) throw new NotFoundException('Không tìm thấy sản phẩm');
     return { id, isActive: false };
   }
-  async search(needs: SearchNeeds): Promise<Product[]> {
-    const qb = this.products
-      .createQueryBuilder('p')
-      .where('p.isActive = true')
-      .andWhere('p.stock > 0');
-    this.applyKeywords(qb, searchTokens(needs.keywords.join(' ')));
-    if (needs.category)
-      qb.andWhere('p.searchText LIKE :category', {
-        category: '%' + normalizeText(needs.category) + '%',
-      });
-    if (needs.minPrice !== null) qb.andWhere('p.price >= :min', { min: needs.minPrice });
-    if (needs.maxPrice !== null) qb.andWhere('p.price <= :max', { max: needs.maxPrice });
-    return qb.orderBy('p.price', 'ASC').addOrderBy('p.id', 'ASC').take(12).getMany();
-  }
-  async availableByIds(ids: string[]): Promise<Product[]> {
-    if (!ids.length) return [];
-    return this.products
-      .find({ where: { id: In(ids), isActive: true } })
-      .then((items) => items.filter((p) => p.stock > 0));
+  listChatCatalog() {
+    return this.products.find({ where: { isActive: true }, order: { id: 'ASC' } });
   }
   private applyKeywords(qb: SelectQueryBuilder<Product>, tokens: string[]) {
     // Match every term (AND); tags can contain synonyms. Bound parameters prevent SQL injection.

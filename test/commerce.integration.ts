@@ -14,7 +14,6 @@ import { CartService } from '../src/cart/cart.service';
 import { OrderService } from '../src/orders/order.service';
 import { CartItem } from '../src/cart/entities/cart-item.entity';
 import { Order } from '../src/orders/entities/order.entity';
-import { LlmService } from '../src/ai/llm.service';
 import { databaseOptions } from '../src/database/data-source';
 
 describe('real PostgreSQL commerce API', () => {
@@ -45,7 +44,6 @@ describe('real PostgreSQL commerce API', () => {
     process.env.JWT_EXPIRES_SECONDS = '900';
     process.env.NODE_ENV = 'test';
     process.env.REDIS_URL = '';
-    process.env.OPENAI_API_KEY = '';
     const migrationDb = await new DataSource(databaseOptions(url)).initialize();
     try {
       await migrationDb.runMigrations();
@@ -204,33 +202,33 @@ describe('real PostgreSQL commerce API', () => {
       .send({ userId: customer.id, sessionId: randomUUID(), message: '   ' })
       .expect(400);
   });
-  it('returns attached real products from the AI HTTP route', async () => {
-    const p = await product();
-    const spy = jest
-      .spyOn(app.get(LlmService), 'generate')
-      .mockResolvedValueOnce({
-        keywords: ['giày', 'nam'],
-        category: null,
-        minPrice: null,
-        maxPrice: 700000,
-        clarification: null,
-      })
-      .mockResolvedValueOnce({ text: 'Mẫu này phù hợp.', productIds: [p.id] });
-    const response = await request(app.getHttpServer())
-      .post('/api/ai/chat')
-      .auth(customer.token, { type: 'bearer' })
-      .send({ userId: customer.id, sessionId: randomUUID(), message: 'giày nam dưới 700 nghìn' })
-      .expect(200);
+  it('recommends real in-stock products and remembers follow-up filters without a provider', async () => {
+    const sessionId = randomUUID();
+    const send = (message: string, id = sessionId) =>
+      request(app.getHttpServer())
+        .post('/api/ai/chat')
+        .auth(customer.token, { type: 'bearer' })
+        .send({ userId: customer.id, sessionId: id, message })
+        .expect(200);
+    const p = await app.get(ProductService).create({
+      name: 'Tai nghe ' + randomUUID(),
+      description: 'Tai nghe có dây màu đen.',
+      category: 'Điện tử',
+      tags: ['tai nghe', 'đen'],
+      price: 240000,
+      stock: 1,
+    });
+    const response = await send('Nghe nhạc riêng tư dưới 300k');
     expect(response.body.productIds).toEqual([p.id]);
-    expect(response.body.products[0].id).toBe(p.id);
-    spy.mockRestore();
-  });
-  it('reports missing AI credentials without fake recommendations', async () => {
-    await request(app.getHttpServer())
-      .post('/api/ai/chat')
-      .auth(customer.token, { type: 'bearer' })
-      .send({ userId: customer.id, sessionId: randomUUID(), message: 'giày' })
-      .expect(503);
+    expect(response.body.products[0]).toMatchObject({ id: p.id, price: 240000, stock: 1 });
+    expect(response.body.text).toContain(p.name);
+
+    expect((await send('màu đen nhé')).body.productIds).toEqual([p.id]);
+    expect((await send('màu đỏ nhé')).body.productIds).toEqual([]);
+    expect((await send('màu đen nhé', randomUUID())).body.productIds).toEqual([]);
+
+    await db.getRepository(Product).update(p.id, { stock: 0 });
+    expect((await send('màu đen nhé')).body.productIds).toEqual([]);
   });
   it('revokes issued tokens on logout', async () => {
     const buyer = await register();
@@ -400,17 +398,15 @@ describe('real PostgreSQL commerce API', () => {
     expect(me.body.tokenVersion).toBeUndefined();
   });
   it('restricts product management and keeps inactive products off public APIs', async () => {
-    const hidden = await app
-      .get(ProductService)
-      .create({
-        name: 'Hidden ' + randomUUID(),
-        description: 'Admin fixture',
-        price: 150000,
-        stock: 5,
-        category: 'QA',
-        tags: ['fixture'],
-        isActive: false,
-      });
+    const hidden = await app.get(ProductService).create({
+      name: 'Hidden ' + randomUUID(),
+      description: 'Admin fixture',
+      price: 150000,
+      stock: 5,
+      category: 'QA',
+      tags: ['fixture'],
+      isActive: false,
+    });
     await request(app.getHttpServer()).get('/api/products/manage').expect(401);
     await request(app.getHttpServer())
       .get('/api/products/manage')

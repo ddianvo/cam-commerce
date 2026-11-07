@@ -1314,7 +1314,11 @@ export default function App() {
             )}
             {messages.length === 1 && (
               <div className="chat-prompts">
-                {['Giày nam dưới 700 nghìn', 'Tìm balo đi làm dưới 500k'].map((text) => (
+                {[
+                  'Giày nam dưới 700 nghìn',
+                  'Nghe nhạc riêng tư dưới 1 triệu',
+                  'Tìm balo đi làm dưới 500k',
+                ].map((text) => (
                   <button key={text} onClick={() => void sendChat(text)}>
                     {text}
                     <ArrowUpRight size={13} />
@@ -1344,7 +1348,7 @@ export default function App() {
             </button>
           </form>
           <p className="chat-disclaimer">
-            AI có thể nhầm lẫn. Hãy kiểm tra thông tin trên sản phẩm.
+            Gợi ý dựa trên danh mục của Cam. Giá và tồn kho có thể thay đổi.
           </p>
         </section>
       )}

@@ -20,7 +20,7 @@ async function bootstrap() {
     const apiConfig = new DocumentBuilder()
       .setTitle('Nest Commerce — API dùng thử')
       .setDescription(
-        'Backend thương mại điện tử. Mở endpoint, bấm Try it out rồi Execute. Đăng nhập tại /api/auth/login; sao chép accessToken vào Authorize để thử giỏ hàng và checkout. Chat AI cần OPENAI_API_KEY.',
+        'Backend thương mại điện tử. Mở endpoint, bấm Try it out rồi Execute. Đăng nhập tại /api/auth/login; sao chép accessToken vào Authorize để thử giỏ hàng và checkout. Trợ lý mua sắm chạy tại máy chủ và dùng danh mục sản phẩm.',
       )
       .setVersion('1.0.0')
       .addBearerAuth()

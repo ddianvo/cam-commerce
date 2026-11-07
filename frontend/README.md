@@ -25,7 +25,7 @@ Phát triển có hot reload: chạy backend tại 3000 rồi `npm run frontend:
 - Giỏ hàng từ DB, cập nhật số lượng/xóa dòng, tổng tiền do server trả.
 - Checkout có idempotency key giữ lại khi lỗi và retry; thông báo đơn xác nhận, chưa thu tiền trực tuyến.
 - Danh sách đơn và trạng thái do backend cung cấp.
-- Chat AI theo user/session, đính kèm sản phẩm và xử lý lỗi provider. Chưa có API key thì báo dịch vụ chưa khả dụng, không giả lập lời tư vấn.
+- Chat tư vấn theo tài khoản và phiên, nhớ tiêu chí và đính kèm sản phẩm thật. Mô hình nhận diện nhu cầu chạy trong NestJS, không cần API key.
 - Dialog hỗ trợ Escape, focus management bằng phần tử HTML dialog; các nút biểu tượng có aria-label.
 
 ## Cấu trúc

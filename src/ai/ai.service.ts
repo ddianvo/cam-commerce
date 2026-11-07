@@ -1,139 +1,136 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
-import { ProductService } from '../products/product.service';
-import { ChatDto } from './dto/chat.dto';
 import { Product } from '../products/entities/product.entity';
-import { Advice, ChatMessage, AdviceSchema, NeedsSchema } from './ai.schemas';
-import { NEEDS_INSTRUCTION, SALES_SYSTEM_INSTRUCTION } from './ai.prompts';
+import { buildSearchText, normalizeText } from '../products/product-search';
+import { ProductService } from '../products/product.service';
+import { ChatState } from './ai.schemas';
 import { ChatMemoryService } from './chat-memory.service';
-import { LlmService } from './llm.service';
+import { ChatDto } from './dto/chat.dto';
+import { predictProductQuery } from './intent-model';
+import { readShoppingNeeds, ShoppingNeeds } from './shopping-needs';
+
+const vnd = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+const welcome =
+  'Bạn đang tìm món gì? Cho mình biết loại sản phẩm và ngân sách khoảng bao nhiêu nhé.';
+
 @Injectable()
 export class AiService {
   constructor(
     private readonly products: ProductService,
     private readonly memory: ChatMemoryService,
-    private readonly llm: LlmService,
   ) {}
+
   async chat(authenticatedUserId: string, dto: ChatDto) {
-    // Never trust the userId supplied by the client; even staff cannot impersonate another user's chat.
     if (authenticatedUserId !== dto.userId)
       throw new ForbiddenException('userId phải trùng với tài khoản đã đăng nhập');
+
     return this.memory.withSession(dto.userId, dto.sessionId, async (state) => {
-      const conversation = [...state.history, { role: 'user' as const, content: dto.message }];
-      const needs = await this.llm.generate(
-        'shopping_needs',
-        NEEDS_INSTRUCTION,
-        conversation,
-        NeedsSchema,
-      );
-      // Invalid model budget is discarded rather than silently relaxing the user's filters.
-      if (needs.minPrice !== null && needs.maxPrice !== null && needs.minPrice > needs.maxPrice) {
-        return this.finish(
-          dto,
-          conversation,
+      const { needs, invalidBudget } = readShoppingNeeds(dto.message, state.needs ?? {});
+      const answer = invalidBudget
+        ? {
+            text: 'Bạn cho mình xác nhận ngân sách, ví dụ “dưới 500k” hoặc “từ 300k đến 600k” nhé?',
+          }
+        : await this.advise(needs);
+      const products = answer.products ?? [];
+      const result = {
+        sessionId: dto.sessionId,
+        text: answer.text,
+        productIds: products.map((p) => p.id),
+        products,
+      };
+      const next: ChatState = {
+        needs,
+        history: [
+          ...state.history,
+          { role: 'user', content: dto.message },
           {
-            text: 'Bạn cho mình xác nhận lại khoảng ngân sách tối thiểu và tối đa nhé?',
-            productIds: [],
-          },
-          [],
-        );
-      }
-      if (!needs.keywords.length && !needs.category) {
-        return this.finish(
-          dto,
-          conversation,
-          {
-            text:
-              needs.clarification ??
-              'Bạn đang muốn tìm loại sản phẩm nào và ngân sách khoảng bao nhiêu?',
-            productIds: [],
-          },
-          [],
-        );
-      }
-      // SQL search executes on server; LLM never receives DB credentials or executes arbitrary SQL.
-      const candidates = await this.products.search(needs);
-      if (!candidates.length)
-        return this.finish(
-          dto,
-          conversation,
-          {
-            text: 'Mình chưa tìm thấy sản phẩm còn hàng phù hợp. Bạn có muốn điều chỉnh loại sản phẩm, thuộc tính hoặc ngân sách không?',
-            productIds: [],
-          },
-          [],
-        );
-      const catalog = candidates.map((p) => ({
-        id: p.id,
-        name: p.name,
-        description: p.description,
-        price: p.price,
-        currency: 'VND',
-        stock: p.stock,
-        category: p.category,
-        tags: p.tags,
-      }));
-      const advice = await this.llm.generate(
-        'sales_advice',
-        SALES_SYSTEM_INSTRUCTION,
-        [
-          ...conversation,
-          {
-            role: 'user',
-            content: JSON.stringify({
-              CATALOG: catalog,
-              needs,
-              instruction: 'Hãy tư vấn dựa trên dữ liệu CATALOG này.',
-            }),
+            role: 'assistant',
+            content: JSON.stringify({ text: result.text, productIds: result.productIds }),
           },
         ],
-        AdviceSchema,
-      );
-      const candidateIds = new Set(candidates.map((p) => p.id));
-      const ids = [...new Set(advice.productIds)];
-      // Reject the whole prose if any unknown ID is present: filtering IDs alone leaves misleading text.
-      if (ids.some((id) => !candidateIds.has(id))) {
-        return this.finish(
-          dto,
-          conversation,
-          {
-            text: 'Mình cần xác nhận lại lựa chọn. Bạn có thể cho biết ưu tiên quan trọng nhất của bạn không?',
-            productIds: [],
-          },
-          [],
-        );
-      }
-      const current = await this.products.availableByIds(ids);
-      if (
-        current.length !== ids.length ||
-        current.some((p) => {
-          const previous = candidates.find((c) => c.id === p.id)!;
-          return (
-            p.price !== previous.price || p.updatedAt.getTime() !== previous.updatedAt.getTime()
-          );
-        })
-      )
-        return this.finish(
-          dto,
-          conversation,
-          {
-            text: 'Thông tin sản phẩm vừa thay đổi. Bạn hãy gửi lại nhu cầu để mình kiểm tra thông tin mới nhất nhé.',
-            productIds: [],
-          },
-          [],
-        );
-      const attached = ids.map((id) => current.find((p) => p.id === id)!);
-      return this.finish(dto, conversation, { text: advice.text, productIds: ids }, attached);
+      };
+      return { state: next, result };
     });
   }
-  private finish(dto: ChatDto, history: ChatMessage[], advice: Advice, products: Product[]) {
+
+  private async advise(needs: ShoppingNeeds): Promise<{ text: string; products?: Product[] }> {
+    if (!needs.query) return { text: welcome };
+
+    const catalog = await this.products.listChatCatalog();
+    let matches = this.findMatches(catalog, needs.query);
+    if (!matches.length) {
+      const predicted = predictProductQuery(needs.query);
+      if (predicted) matches = this.findMatches(catalog, predicted);
+    }
+    if (!matches.length) {
+      return {
+        text: 'Mình chưa nhận ra món bạn đang tìm. Bạn cho mình tên hoặc loại sản phẩm cụ thể hơn nhé?',
+      };
+    }
+
+    const suitable = matches.filter(
+      ({ product, attributes }) =>
+        product.stock > 0 &&
+        (needs.minPrice === undefined || product.price >= needs.minPrice) &&
+        (needs.maxPrice === undefined || product.price <= needs.maxPrice) &&
+        (!needs.audience ||
+          attributes.includes(' ' + needs.audience + ' ') ||
+          attributes.includes(' unisex ')) &&
+        (!needs.color || attributes.includes(' ' + needs.color + ' ')),
+    );
+    const products = suitable
+      .sort((a, b) => {
+        const priceDifference = a.product.price - b.product.price;
+        return needs.cheapest
+          ? priceDifference || b.score - a.score
+          : b.score - a.score || priceDifference;
+      })
+      .slice(0, 3)
+      .map(({ product }) => product);
+
+    if (!products.length)
+      return {
+        text: 'Mình chưa thấy sản phẩm còn hàng khớp với yêu cầu. Bạn muốn đổi ngân sách hoặc thuộc tính nào?',
+      };
+
+    const top = products[0];
     return {
-      state: {
-        history: [
-          ...history,
-          { role: 'assistant' as const, content: JSON.stringify(advice) },
-        ].slice(-24),
-      },
-      result: { sessionId: dto.sessionId, ...advice, products },
+      text:
+        'Mình tìm được ' +
+        products.length +
+        ' lựa chọn phù hợp. Bạn có thể xem ' +
+        top.name +
+        ' (' +
+        vnd.format(top.price) +
+        ') trước nhé.',
+      products,
     };
+  }
+
+  private findMatches(catalog: Product[], query: string) {
+    const normalized = query.replace(/\bba lo\b/g, 'balo');
+    const exactCategory = catalog.some((product) => normalizeText(product.category) === normalized);
+    const terms = [...new Set(normalized.split(' '))];
+    const phrase = ' ' + normalized + ' ';
+
+    return catalog.flatMap((product) => {
+      const name = ' ' + normalizeText(product.name) + ' ';
+      const category = ' ' + normalizeText(product.category) + ' ';
+      const tags = ' ' + normalizeText(product.tags.join(' ')) + ' ';
+      const searchable = ' ' + buildSearchText(product) + ' ';
+      if (
+        exactCategory
+          ? category !== phrase
+          : !terms.every((term) => searchable.includes(' ' + term + ' '))
+      )
+        return [];
+
+      const score =
+        Number(name.includes(phrase)) * 10 +
+        Number(tags.includes(phrase)) * 5 +
+        terms.filter((term) => name.includes(' ' + term + ' ')).length;
+      // Attribute filters use the name and tags, where the catalog describes sellable variants.
+      const attributes = (name + tags).replace(/\s+/g, ' ');
+      return [{ product, score, attributes }];
+    });
   }
 }

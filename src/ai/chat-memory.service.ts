@@ -55,7 +55,7 @@ export class ChatMemoryService implements OnModuleDestroy {
       const state = structuredClone(this.sessions.get(key)?.state ?? { history: [] });
       const output = await fn(state);
       this.sessions.set(key, {
-        state: { history: output.state.history.slice(-24) },
+        state: { ...output.state, history: output.state.history.slice(-24) },
         expiresAt: Date.now() + this.ttl * 1000,
       });
       return output.result;
@@ -93,7 +93,7 @@ export class ChatMemoryService implements OnModuleDestroy {
           lockKey,
           key,
           token,
-          JSON.stringify({ history: output.state.history.slice(-24) }),
+          JSON.stringify({ ...output.state, history: output.state.history.slice(-24) }),
           this.ttl,
         );
         if (saved !== 1) throw new ConflictException('Phiên xử lý đã hết hạn, vui lòng thử lại');
